@@ -2,6 +2,8 @@
 
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
+val envReleaseNote: String = System.getenv("RELEASE_NOTE") ?: "LOCAL_BUILD"
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -46,6 +48,29 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+
+        val environmentFlavorDimension = "environment"
+        flavorDimensions.add(environmentFlavorDimension)
+        productFlavors {
+            create("production") {
+                isDefault = true
+                dimension = environmentFlavorDimension
+            }
+
+            create("staging") {
+                dimension = environmentFlavorDimension
+
+                applicationIdSuffix = ".stg"
+                versionNameSuffix = "-stg"
+            }
+
+            create("development") {
+                dimension = environmentFlavorDimension
+
+                applicationIdSuffix = ".dev"
+                versionNameSuffix = "-dev"
+            }
         }
     }
     compileOptions {
