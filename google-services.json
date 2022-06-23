@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1026743078456",
+    "project_id": "testcicdapp-f595d",
+    "storage_bucket": "testcicdapp-f595d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026743078456:android:7ef3799b11b78dc24360cd",
+        "android_client_info": {
+          "package_name": "com.alaaeddinalbarghoth.testcicdapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1026743078456-1vsltofl357nd3ktnd580uh3s9ptv5mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByiM7cJHFjbfUpMXEKs40QfIZ1HcCElS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1026743078456-1vsltofl357nd3ktnd580uh3s9ptv5mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

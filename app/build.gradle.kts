@@ -10,6 +10,7 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
     id("io.gitlab.arturbosch.detekt") version "1.19.0"
     id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
 }
 
 detekt {
@@ -42,34 +43,19 @@ android {
     }
 
     buildTypes {
+        debug {
+            firebaseAppDistribution {
+                groups = "QA"
+            }
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-
-        val environmentFlavorDimension = "environment"
-        flavorDimensions.add(environmentFlavorDimension)
-        productFlavors {
-            create("production") {
-                isDefault = true
-                dimension = environmentFlavorDimension
-            }
-
-            create("staging") {
-                dimension = environmentFlavorDimension
-
-                applicationIdSuffix = ".stg"
-                versionNameSuffix = "-stg"
-            }
-
-            create("development") {
-                dimension = environmentFlavorDimension
-
-                applicationIdSuffix = ".dev"
-                versionNameSuffix = "-dev"
+            firebaseAppDistribution {
+                groups = "QA"
             }
         }
     }
